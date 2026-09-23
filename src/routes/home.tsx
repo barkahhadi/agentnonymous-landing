@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { MotionConfig } from 'framer-motion'
 import { Header } from '@/features/landing/header'
 import { Hero } from '@/features/landing/hero'
 import { About, Features, Process, Pricing, FAQ, Footer } from '@/features/landing/sections'
@@ -9,7 +8,7 @@ export function HomePage() {
   const [selectedPlan, setSelectedPlan] = useState('')
 
   return (
-    <MotionConfig reducedMotion="user">
+    <>
       <a className="skip-link" href="#main">Skip to content</a>
       <Header />
       <main id="main">
@@ -22,6 +21,6 @@ export function HomePage() {
         <Contact selectedPlan={selectedPlan} onClearPlan={() => setSelectedPlan('')} />
       </main>
       <Footer />
-    </MotionConfig>
+    </>
   )
 }

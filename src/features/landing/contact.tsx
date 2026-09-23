@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { ArrowUpRight, ChevronDown, X } from 'lucide-react'
-import { Reveal } from '@/components/motion/reveal'
+import { Reveal, RevealSection } from '@/components/motion/reveal'
 import { Button } from '@/components/ui/button'
 import { SectionHeading } from './sections'
 
@@ -13,7 +13,7 @@ export function Contact({ selectedPlan, onClearPlan }: { selectedPlan: string; o
   }
 
   return (
-    <section id="contact" className="contact design-section" aria-label="Get in touch">
+    <RevealSection id="contact" className="contact design-section" aria-label="Get in touch">
       <div className="contact-art" aria-hidden="true" />
       <SectionHeading eyebrow="Get In Touch" description={<>Tell us the one task your team dreads every week. On the first call we will<br className="desktop-break" /> tell you, for free, whether it is worth automating and roughly what it would<br className="desktop-break" /> take.</>}>
         Show Us Your Most Annoying<br />Workflow.
@@ -33,6 +33,6 @@ export function Contact({ selectedPlan, onClearPlan }: { selectedPlan: string; o
           {notice && <p role="status" className="form-notice">Online submissions are not available yet. Nothing has been sent. You can contact us directly at <a href="mailto:info@agentnonymous.com">info@agentnonymous.com</a>.</p>}
         </form>
       </Reveal>
-    </section>
+    </RevealSection>
   )
 }

@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import { Check } from 'lucide-react'
 import { motionTiming } from '@/lib/motion'
-import { Reveal } from '@/components/motion/reveal'
+import { Reveal, RevealSection } from '@/components/motion/reveal'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { benefits, faqs, planFeatures, plans, steps } from './content'
@@ -10,7 +10,7 @@ export function SectionHeading({ eyebrow, children, description }: { eyebrow: st
   return (
     <div className="section-heading">
       <Reveal><div className="eyebrow"><img src="/images/brand-mark.webp" width="28" height="28" alt="" />{eyebrow}</div></Reveal>
-      <Reveal delay={motionTiming.stagger} blur><h2>{children}</h2></Reveal>
+      <Reveal delay={motionTiming.stagger}><h2>{children}</h2></Reveal>
       <Reveal delay={motionTiming.stagger * 2}><p>{description}</p></Reveal>
     </div>
   )
@@ -18,7 +18,7 @@ export function SectionHeading({ eyebrow, children, description }: { eyebrow: st
 
 export function About() {
   return (
-    <section className="about design-section" id="about" aria-label="About Agentnonymous">
+    <RevealSection className="about design-section" id="about" aria-label="About Agentnonymous">
       <SectionHeading eyebrow="About" description={<>Our custom AI solutions deliver measurable growth and operational excellence. We believe that AI should not just automate tasks, but amplify the creative and strategic potential of every human.</>}>
         Automate The Manual.<br />Accelerate The Future.
       </SectionHeading>
@@ -32,7 +32,7 @@ export function About() {
           </Reveal>
         ))}
       </div>
-    </section>
+    </RevealSection>
   )
 }
 
@@ -51,7 +51,7 @@ function FeatureCard({ title, description, children, className = '', delay = 0 }
 
 export function Features() {
   return (
-    <section id="features" className="features design-section" aria-label="Key features">
+    <RevealSection id="features" className="features design-section" aria-label="Key features">
       <SectionHeading eyebrow="Key Features" description={<>Packed with powerful, easy-to-use features that give you complete<br className="desktop-break" /> control over your AI agents.</>}>
         Build Your Powerful Agents.<br />All In One Place
       </SectionHeading>
@@ -82,13 +82,13 @@ export function Features() {
           <div className="feature-visual grid-visual" aria-hidden="true" />
         </FeatureCard>
       </div>
-    </section>
+    </RevealSection>
   )
 }
 
 export function Process() {
   return (
-    <section id="process" className="process design-section" aria-label="Our process">
+    <RevealSection id="process" className="process design-section" aria-label="Our process">
       <SectionHeading eyebrow="The Process" description="From your content to a live agent in four steps.">
         From Your Content to<br />A Live Agent in Four Steps.
       </SectionHeading>
@@ -105,13 +105,13 @@ export function Process() {
         <Reveal className="process-mark mark-one" delay={motionTiming.stagger}><div><img src="/images/brand-mark.webp" width="120" height="120" alt="" loading="lazy" /></div></Reveal>
         <Reveal className="process-mark mark-two" delay={motionTiming.stagger * 2}><div><img src="/images/brand-mark.webp" width="120" height="120" alt="" loading="lazy" /></div></Reveal>
       </div>
-    </section>
+    </RevealSection>
   )
 }
 
 export function Pricing({ onSelectPlan }: { onSelectPlan: (plan: string) => void }) {
   return (
-    <section id="pricing" className="pricing design-section" aria-label="Pricing plans">
+    <RevealSection id="pricing" className="pricing design-section" aria-label="Pricing plans">
       <SectionHeading eyebrow="Pricing Plan" description={<>Build your AI workforce with pricing that actually makes sense.<br />No hidden costs, just high-performance results.</>}>
         Flexible Plans for Every<br />Stage of Growth
       </SectionHeading>
@@ -135,13 +135,13 @@ export function Pricing({ onSelectPlan }: { onSelectPlan: (plan: string) => void
           </Reveal>
         ))}
       </div>
-    </section>
+    </RevealSection>
   )
 }
 
 export function FAQ() {
   return (
-    <section className="faq design-section" id="faq" aria-label="Frequently asked questions">
+    <RevealSection className="faq design-section" id="faq" aria-label="Frequently asked questions">
       <SectionHeading eyebrow="FAQ" description="Find quick answers to the most common support questions">
         Have Questions?<br />We’ve Got Answers.
       </SectionHeading>
@@ -150,7 +150,7 @@ export function FAQ() {
           {faqs.map((faq, index) => <AccordionItem key={faq.question} value={`faq-${index}`}><AccordionTrigger>{faq.question}</AccordionTrigger><AccordionContent>{faq.answer}</AccordionContent></AccordionItem>)}
         </Accordion>
       </Reveal>
-    </section>
+    </RevealSection>
   )
 }
 
