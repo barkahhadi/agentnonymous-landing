@@ -174,7 +174,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .faq-content[data-state='closed'] { animation: accordion-up var(--motion-interaction) var(--motion-ease); }
 
 .contact { position: relative; isolation: isolate; padding-bottom: 0; }
-.contact-art { position: absolute; z-index: -1; inset: 0 0 auto; height: 445px; background: #020810 url('/images/contact-art.webp') no-repeat; background-size: 100% auto; background-position: center top; transform: rotate(180deg); }
+.contact-art { position: absolute; z-index: -1; top: 0; left: 50%; width: 100vw; height: 445px; background: #020810 url('/images/contact-art.webp') no-repeat; background-size: 100% auto; background-position: center top; transform: translateX(-50%) rotate(180deg); }
 .contact .section-heading h2 { font-size: clamp(35px, 3.47vw, 52px); }
 .contact .section-heading p { max-width: 490px; }
 .contact-form-wrapper { max-width: 1090px; margin: 67px auto 0; }
